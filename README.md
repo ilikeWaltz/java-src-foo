@@ -1,2 +1,0 @@
-# java-foo
-java foo
