@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.padual.com/java/logback.xsd"
+	scan="true" scanPeriod="60000">
+
+	<property name="logdir" value="../logs" />
+	<property name="maxhistory" value="7" />
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="utf-8">
+			<pattern>
+				%d{HH:mm:ss.SSS} %-5p [%t] %C{15}.%M\(%L\) - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="info.file"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder charset="utf-8">
+			<pattern>
+				%d{HH:mm:ss.SSS} %-5p [%t] %C{15}.%M\(%L\) - %m%n
+			</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logdir}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>${maxhistory}</maxHistory>
+			<cleanHistoryOnStart>true</cleanHistoryOnStart>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="java.sql" level="debug" additivity="false">
+		<appender-ref ref="stdout" />
+	</logger>
+
+	<!-- -->
+	<root level="info">
+		<appender-ref ref="stdout" />
+		<!-- <appender-ref ref="info.file" /> -->
+	</root>
+
+</configuration>
