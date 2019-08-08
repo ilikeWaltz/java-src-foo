@@ -9,7 +9,15 @@ public class IntegerFoo {
 	private static Logger logger = LoggerFactory.getLogger(IntegerFoo.class);
 
 	@Test
+	public void toBinaryString() {
+		logger.info("5: {}", Integer.toBinaryString(5));
+		logger.info("15: {}", Integer.toBinaryString(15));
+		logger.info("25: {}", Integer.toBinaryString(25));
+	}
+
+	@Test
 	public void toHexString() {
+		logger.info("15: {}", Integer.toHexString(15));
 		logger.info("{}", Integer.toHexString(1024 * 1024));
 	}
 

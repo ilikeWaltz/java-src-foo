@@ -3,13 +3,17 @@ package foo.util.concurrent;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// ---------------------- ConcurrentHashMap.Node<K, V>
+// int hash
+// K key
+// V val
+// Node<K,V> next
 
-// 1. 存储原理
+// ---------------------- Node<K,V>[] table
+// ---------------------- Node<K,V>[] nextTable
+
+
 public class ConcurrentHashMapFoo {
-
-	private static Logger logger = LoggerFactory.getLogger(ConcurrentHashMapFoo.class);
 
 	/**
 	 * 

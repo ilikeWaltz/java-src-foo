@@ -10,6 +10,7 @@ public class BitCalFoo {
 
 	@Test
 	public void t1() {
-		logger.info("{}", 15 & 2);
+		logger.info("{}", 13 & 2);
+		logger.info("{}", 15 & 25);
 	}
 }

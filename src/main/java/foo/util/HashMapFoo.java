@@ -3,19 +3,20 @@ package foo.util;
 import java.util.HashMap;
 import java.util.Map;
 
-// ---------------------- Node
+// ---------------------- HashMap.Node<K, V>
 // int hash
 // K k
 // V v
 // Node<K,V> next
 
-// ---------------------- table
+// ---------------------- Node<K,V>[] table
 // default capacity?
 // default load factor?
 // threshold = capacity * loadFactor
 
-// how to put node in table? 
-// how to resize?
+// how to put node in table?
+// how table resize?
+// how threshold resize?
 
 // 
 public class HashMapFoo {
