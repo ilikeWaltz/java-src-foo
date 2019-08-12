@@ -5,16 +5,19 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// Thread.join() : Waits for this thread to die.
+// void join() // Waits for this thread to die.
+// void join(long millis) // Waits at most millis milliseconds for this thread to die. 
 
+// A timeout of 0 means to wait forever. 
 // join() == join(0)
+
 public class JoinFoo {
 
 	private static Logger logger = LoggerFactory.getLogger(JoinFoo.class);
 
 	private static class JoinRunner implements Runnable {
 
-		int sleepTime;
+		private int sleepTime;
 
 		@Override
 		public void run() {
@@ -37,13 +40,12 @@ public class JoinFoo {
 		jr2.sleepTime = 3;
 
 		Thread t1 = new Thread(jr1);
-		Thread t2 = new Thread(jr2);
-
 		t1.start();
-		t2.start();
+		t1.join(); // main thread waits for this thread to die.
 
-		t1.join();
-		t2.join(); // main thread waits for this thread to die.
+		Thread t2 = new Thread(jr2);
+		t2.start();
+		t2.join(999); // Waits at most millis milliseconds
 
 		logger.info("main thread end.");
 	}

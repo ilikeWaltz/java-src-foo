@@ -7,4 +7,5 @@ public class CallableFoo {
 
 	private static Logger logger = LoggerFactory.getLogger(CallableFoo.class);
 
+	
 }

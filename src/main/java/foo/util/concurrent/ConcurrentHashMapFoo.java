@@ -3,6 +3,8 @@ package foo.util.concurrent;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+// ------------------------------- ConcurrentHashMap
+//
 // ---------------------- ConcurrentHashMap.Node<K, V>
 // int hash
 // K key
@@ -11,7 +13,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 // ---------------------- Node<K,V>[] table
 // ---------------------- Node<K,V>[] nextTable
-
 
 public class ConcurrentHashMapFoo {
 
