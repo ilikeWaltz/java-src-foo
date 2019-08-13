@@ -14,13 +14,22 @@ import java.util.concurrent.ConcurrentHashMap;
 // ---------------------- Node<K,V>[] table
 // ---------------------- Node<K,V>[] nextTable
 
+// what is spread?
+
 public class ConcurrentHashMapFoo {
 
-	/**
-	 * 
-	 */
-	public void t() {
-		Map<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-		concurrentHashMap.put("", "");
+	public static void main(String[] args) {
+
+		Map<String, String> map = new ConcurrentHashMap<>();
+
+		String k;
+		String v;
+		for (int i = 0; i < 1 << 6; i++) {
+			k = "k_" + i;
+			v = "v_" + i;
+			map.put(k, v);
+		}
+
+		System.out.println(map);
 	}
 }

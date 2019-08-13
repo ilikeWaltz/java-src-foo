@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // ---------------------- HashMap.Node<K, V>
-// int hash
+// int hash TODO 
 // K k
 // V v
 // Node<K,V> next
@@ -14,7 +14,9 @@ import java.util.Map;
 // default load factor?
 // threshold = capacity * loadFactor
 
-// how to put node in table?
+// how HashMap put new Node in table?
+// how HashMap handle concurrent put? TODO
+
 // how table resize?
 // how threshold resize?
 
@@ -23,15 +25,17 @@ public class HashMapFoo {
 
 	public static void main(String[] args) {
 
-		Map<String, String> hashMap = new HashMap<>();
+		Map<String, String> map = new HashMap<>();
 
 		String k;
 		String v;
 		for (int i = 0; i < 1 << 6; i++) {
 			k = "k_" + i;
 			v = "v_" + i;
-			hashMap.put(k, v);
+			map.put(k, v);
 		}
 
+		System.out.println(map);
 	}
+
 }

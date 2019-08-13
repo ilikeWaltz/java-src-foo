@@ -7,4 +7,7 @@ public class FutureTaskFoo {
 
 	private static Logger logger = LoggerFactory.getLogger(FutureTaskFoo.class);
 
+	public static void main(String[] args) {
+
+	}
 }
