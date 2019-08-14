@@ -21,33 +21,23 @@ public class CallableFoo {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
-		Future<Integer> future = executorService.submit(new Callabler(System.currentTimeMillis()));
+		Future<Integer> future = executorService.submit(new Callable<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				long timeout = System.currentTimeMillis();
+				TimeUnit.SECONDS.sleep(timeout % 3);
+
+				if (timeout % 2 == 0)
+					return 1;
+				else
+					return 0;
+			}
+		});
 		executorService.shutdown();
 
 		Integer integer = future.get();
-		logger.info("{}", integer);
+		logger.info("future.get(): {}", integer);
 
 	}
 
-	private static class Callabler implements Callable<Integer> {
-
-		private long timeout;
-
-		public Callabler(long timeout) {
-			this.timeout = timeout;
-		}
-
-		@Override
-		public Integer call() throws Exception {
-
-			TimeUnit.SECONDS.sleep(timeout % 3);
-
-			if (timeout % 2 == 0)
-				return 1;
-			else
-				return 0;
-
-		}
-
-	}
 }
