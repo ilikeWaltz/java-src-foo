@@ -1,0 +1,6 @@
+--------------------------- 
+
+--------------------------- how to stop a thread?
+thread.stop()?
+thread.suspend()?
+
