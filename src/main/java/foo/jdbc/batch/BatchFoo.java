@@ -1,4 +1,4 @@
-package foo.jdbc.mysql;
+package foo.jdbc.batch;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

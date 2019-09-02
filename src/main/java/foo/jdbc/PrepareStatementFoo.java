@@ -1,4 +1,4 @@
-package foo.jdbc.mysql;
+package foo.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,6 +8,9 @@ import java.sql.Statement;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+// java.sql.PreparedStatement
+// An object that represents a precompiled SQL statement. 
 
 public class PrepareStatementFoo {
 
