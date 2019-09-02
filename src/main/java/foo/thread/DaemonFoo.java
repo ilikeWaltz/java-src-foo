@@ -1,5 +1,7 @@
 package foo.thread;
 
+import java.util.concurrent.TimeUnit;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +18,23 @@ public class DaemonFoo {
 
 	public static void main(String[] args) {
 
-		Thread thread = new Thread();
+		Thread thread = new Thread(new Runnable() {
 
+			@Override
+			public void run() {
+				try {
+					TimeUnit.SECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					logger.error("", e);
+				}
+				logger.info("Thread.currentThread().isDaemon(): {}", Thread.currentThread().isDaemon());
+			}
+		});
+
+		// true: JVM end immediately
+		// false: JVM wait for user thread to end
 		thread.setDaemon(true);
+
 		thread.start();
 	}
 }

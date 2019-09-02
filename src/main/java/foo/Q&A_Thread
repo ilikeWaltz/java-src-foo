@@ -1,0 +1,85 @@
+--------------------------- how to stop a thread? [0]
+
+--------------------------- why are these methods deprecated?
+Thread.stop()?							[1]
+Thread.suspend() & Thread.resume()?		[2]
+Thread.destroy()?						[3]
+
+--------------------------- how many states does a thread have? what does it mean? [4]
+--------------------------- what's the difference between blocked and waiting [5]
+
+--------------------------- what is deamon thread? [6]
+--------------------------- what is Thread.join()? [7]
+
+--------------------------- what is Thread.yield()? [8]
+
+########################################################################
+--------------------------- [0]
+Simply modifies some variable to indicate that the target thread should stop running. 
+The target thread should check this variable regularly, 
+and return from its run method in an orderly fashion if the variable indicates that it is to stop running.
+
+If the target thread waits for long periods (on a condition variable, for example), 
+the interrupt method should be used to interrupt the wait. 
+
+--------------------------- [1] (unsafe)
+
+Thread.stop() forces the thread to stop executing. 
+
+It is permitted to stop a thread that has not yet been started. 
+If the thread is eventually started, it immediately terminates. 
+
+*
+This method is inherently unsafe. 
+Stopping a thread with Thread.stop causes it to unlock all of the monitors that it has locked. 
+If any of the objects previously protected by these monitors were in an inconsistent state, 
+the damaged objects become visible to other threads, potentially resulting in arbitrary behavior. 
+
+*
+Many uses of stop should be replaced by code that simply modifies some variable to indicate that the target thread should stop running. 
+The target thread should check this variable regularly, and return from its run method in an orderly fashion if the variable indicates that it is to stop running. 
+If the target thread waits for long periods (on a condition variable, for example), the interrupt method should be used to interrupt the wait. 
+
+https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html
+
+
+--------------------------- [2] (deadlock-prone)
+
+Thread.suspend() suspends this thread.
+If the thread is alive,
+it is suspended and makes no further progress unless and until it is resumed.
+
+*
+This method has been deprecated, as it is inherently deadlock-prone. 
+If the target thread holds a lock on the monitor protecting a critical system resource when it is suspended, 
+no thread can access this resource until the target thread is resumed. 
+If the thread that would resume the target thread attempts to lock this monitor prior to calling resume, deadlock results. 
+Such deadlocks typically manifest themselves as "frozen" processes.
+
+
+--------------------------- [3] (deadlock-prone if implemented)
+
+This method was originally designed to destroy this thread without any cleanup. 
+Any monitors it held would have remained locked. 
+However, the method was never implemented. 
+If if were to be implemented, it would be deadlock-prone in much the manner of suspend.
+
+
+
+
+--------------------------- [4]
+6
+nrbwtt
+
+--------------------------- [5]
+blocked: wait for a lock to do sth
+waiting: wait for other thread for some reason
+
+--------------------------- [6]
+
+--------------------------- [7]
+--------------------------- [8]
+
+
+--------------------------- 
+

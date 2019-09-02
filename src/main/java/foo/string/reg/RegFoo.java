@@ -18,13 +18,16 @@ import org.slf4j.LoggerFactory;
 //
 // [a-z]
 // [0-9a-zA-Z]
+// 
+// [0-9a-zA-Z_] == \w
 //
 // [abc]: a or b or c
 
 // *: >=0
 // +: >=1
 // {m}: ==m
-// {m,n}
+// {m,}: >m
+// {m,n}: >m, <n
 
 public class RegFoo {
 

@@ -1,8 +1,5 @@
 package foo.thread;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 // ---------------- Thread.State
 // new					// Thread state for a thread which has not yet started.
 // runnable				// A thread is executing in the Java virtual machine but it may be waiting for other resources from the operating system such as processor.
@@ -31,7 +28,5 @@ import org.slf4j.LoggerFactory;
 // LockSupport.parkUntil 
 
 public class StateFoo {
-
-	private static Logger logger = LoggerFactory.getLogger(StateFoo.class);
-
+	
 }
