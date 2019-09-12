@@ -8,8 +8,26 @@ import java.sql.Statement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// Statement java.sql.Connection.createStatement()
+// Creates a Statement object for sending SQL statements to the database.
+// SQL statements without parameters are normally executed using Statement objects.
+// If the same SQL statement is executed many times, it may be more efficient to use a PreparedStatement object.
+
+// 
 // java.sql.Statement
 // The object used for executing a static SQL statement and returning the results it produces. 
+
+//
+// ResultSet executeQuery(String sql) throws SQLException;
+// int executeUpdate(String sql) throws SQLException;
+// boolean execute(String sql) throws SQLException;
+
+// ResultSet getResultSet() throws SQLException;
+
+//
+// void addBatch(String sql) throws SQLException;
+// void clearBatch() throws SQLException;
+// int[] executeBatch() throws SQLException;
 
 public class StatementFoo {
 
@@ -18,7 +36,7 @@ public class StatementFoo {
 	public static void main(String[] args) {
 
 		// TODO
-		String url = "jdbc:mysql://localhost/database_dev";
+		String url = "jdbc:mysql://localhost/db_dev";
 		String user = "root";
 		String password = "";
 
@@ -27,10 +45,6 @@ public class StatementFoo {
 
 		try {
 
-			// Not necessary.
-			Class.forName("com.mysql.jdbc.Driver"); // XXX mysql
-
-			// connection
 			connection = DriverManager.getConnection(url, user, password);
 			logger.info("Connection: {}", connection);
 
@@ -39,6 +53,7 @@ public class StatementFoo {
 			logger.info("Statement: {}", statement);
 
 			//
+			statement.execute("");
 
 		} catch (SQLException se) {
 			logger.error("sql error", se);

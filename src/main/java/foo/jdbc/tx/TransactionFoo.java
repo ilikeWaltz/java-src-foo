@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TransactionDemo {
+public class TransactionFoo {
 
-	private static Logger logger = LoggerFactory.getLogger(TransactionDemo.class);
+	private static Logger logger = LoggerFactory.getLogger(TransactionFoo.class);
 
 	public static void main(String[] args) {
 
@@ -20,29 +20,31 @@ public class TransactionDemo {
 		String password = "";
 
 		Connection connection = null;
-		PreparedStatement prepareStatement = null;
+		PreparedStatement preparedStatement = null;
 
 		try {
 			connection = DriverManager.getConnection(url, user, password);
-			logger.info("Connected database successfully...");
+			logger.info("Connection: {}", connection);
 
-			//
+			// XXX
 			connection.setAutoCommit(false);
 			logger.info("setAutoCommit(false)");
 
-			// Execute a query
-			prepareStatement = connection.prepareStatement("DELETE FROM student WHERE id = ?");
-			prepareStatement.setInt(1, 100);
-			logger.info("result: {}", prepareStatement.execute());
+			// Creates a PreparedStatement
+			preparedStatement = connection.prepareStatement("DELETE FROM student WHERE id = ?");
 
-			//
+			// do sth
+			preparedStatement.setInt(1, 100);
+			logger.info("result: {}", preparedStatement.execute());
+
+			// XXX
 			connection.commit();
 			logger.info("connection.commit()");
 
 		} catch (SQLException se) {
 			logger.error("sql error", se);
 
-			//
+			// XXX
 			try {
 				connection.rollback();
 				logger.info("connection.rollback()");
@@ -54,9 +56,9 @@ public class TransactionDemo {
 			logger.error("error", e);
 		} finally {
 
-			if (prepareStatement != null) {
+			if (preparedStatement != null) {
 				try {
-					prepareStatement.close();
+					preparedStatement.close();
 				} catch (SQLException se) {
 					logger.error("error", se);
 				}

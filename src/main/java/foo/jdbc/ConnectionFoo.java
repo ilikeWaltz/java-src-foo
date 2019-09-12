@@ -15,9 +15,17 @@ import org.slf4j.LoggerFactory;
 // A connection (session) with a specific database. 
 // SQL statements are executed and results are returned within the context of a connection. 
 
+// ######## 
 // Statement createStatement() throws SQLException;
 // PreparedStatement prepareStatement(String sql) throws SQLException;
 // CallableStatement prepareCall(String sql) throws SQLException;
+
+// ######## tx
+// void setAutoCommit(boolean autoCommit) throws SQLException;
+// void commit() throws SQLException;
+// void rollback() throws SQLException;
+
+// void setTransactionIsolation(int level) throws SQLException;
 
 public class ConnectionFoo {
 

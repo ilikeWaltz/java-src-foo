@@ -6,12 +6,17 @@ Thread.suspend() & Thread.resume()?		[2]
 Thread.destroy()?						[3]
 
 --------------------------- how many states does a thread have? what does it mean? [4]
---------------------------- what's the difference between blocked and waiting [5]
+
+--------------------------- what's the difference between blocked and waiting? [5]
 
 --------------------------- what is deamon thread? [6]
+
 --------------------------- what is Thread.join()? [7]
 
 --------------------------- what is Thread.yield()? [8]
+
+--------------------------- what is Thread.sleep(.)?
+--------------------------- what is Object.wait()?
 
 ########################################################################
 --------------------------- [0]
@@ -22,8 +27,11 @@ and return from its run method in an orderly fashion if the variable indicates t
 If the target thread waits for long periods (on a condition variable, for example), 
 the interrupt method should be used to interrupt the wait. 
 
---------------------------- [1] (unsafe)
 
+
+
+
+--------------------------- [1] (unsafe)
 Thread.stop() forces the thread to stop executing. 
 
 It is permitted to stop a thread that has not yet been started. 
@@ -43,8 +51,10 @@ If the target thread waits for long periods (on a condition variable, for exampl
 https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html
 
 
---------------------------- [2] (deadlock-prone)
 
+
+
+--------------------------- [2] (deadlock-prone)
 Thread.suspend() suspends this thread.
 If the thread is alive,
 it is suspended and makes no further progress unless and until it is resumed.
@@ -57,8 +67,10 @@ If the thread that would resume the target thread attempts to lock this monitor 
 Such deadlocks typically manifest themselves as "frozen" processes.
 
 
---------------------------- [3] (deadlock-prone if implemented)
 
+
+
+--------------------------- [3] (deadlock-prone if implemented)
 This method was originally designed to destroy this thread without any cleanup. 
 Any monitors it held would have remained locked. 
 However, the method was never implemented. 
@@ -67,13 +79,22 @@ If if were to be implemented, it would be deadlock-prone in much the manner of s
 
 
 
+
 --------------------------- [4]
 6
 nrbwtt
 
+
+
+
+
 --------------------------- [5]
 blocked: wait for a lock to do sth
 waiting: wait for other thread for some reason
+
+
+
+
 
 --------------------------- [6]
 
