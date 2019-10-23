@@ -1,0 +1,17 @@
+#################### packages
+java.nio
+java.nio.channels
+java.nio.charset
+java.nio.file
+
+####################
+Buffer: 	A container for data of a specific primitive type. 
+Channel:	A nexus for I/O operations. 
+Selector:	A multiplexor of SelectableChannel objects. 
+
+####################	Buffer:
+capacity:	
+limit:		
+position:	
+
+####################

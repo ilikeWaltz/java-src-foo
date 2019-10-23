@@ -1,7 +1,7 @@
 package foo.util.concurrent;
 
-// java.util.concurrent.Executor
-// interface Executor
+// java.util.concurrent.Executor	(I)
+// An object that executes submitted Runnable tasks.
 
 // void execute(Runnable command);
 

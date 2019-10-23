@@ -3,7 +3,7 @@ package foo.util.concurrent;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-// ------------------------------- ConcurrentHashMap
+// -------- java.util.concurrent.ConcurrentHashMap
 //
 // ---------------------- ConcurrentHashMap.Node<K, V>
 // int hash

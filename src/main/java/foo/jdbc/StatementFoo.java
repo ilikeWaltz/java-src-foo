@@ -12,18 +12,18 @@ import org.slf4j.LoggerFactory;
 // Creates a Statement object for sending SQL statements to the database.
 // SQL statements without parameters are normally executed using Statement objects.
 // If the same SQL statement is executed many times, it may be more efficient to use a PreparedStatement object.
-
+//
 // 
 // java.sql.Statement
 // The object used for executing a static SQL statement and returning the results it produces. 
-
+//
 //
 // ResultSet executeQuery(String sql) throws SQLException;
 // int executeUpdate(String sql) throws SQLException;
 // boolean execute(String sql) throws SQLException;
-
+//
 // ResultSet getResultSet() throws SQLException;
-
+//
 //
 // void addBatch(String sql) throws SQLException;
 // void clearBatch() throws SQLException;

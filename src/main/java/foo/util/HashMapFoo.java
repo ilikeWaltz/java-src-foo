@@ -3,7 +3,7 @@ package foo.util;
 import java.util.HashMap;
 import java.util.Map;
 
-// ---------------------- HashMap.Node<K, V>
+// ---------------------- java.util.HashMap.Node<K, V>
 // int hash TODO 
 // K k
 // V v
@@ -27,15 +27,12 @@ public class HashMapFoo {
 
 		Map<String, String> map = new HashMap<>();
 
-		String k;
-		String v;
-		for (int i = 0; i < 1 << 6; i++) {
+		String k, v;
+		for (int i = 0, j = 1 << 6; i < j; i++) {
 			k = "k_" + i;
 			v = "v_" + i;
 			map.put(k, v);
 		}
-
-		System.out.println(map);
 	}
 
 }
