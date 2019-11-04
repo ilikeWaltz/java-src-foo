@@ -63,23 +63,25 @@ public class ThreadPoolExecutorFoo {
 		TimeUnit.SECONDS.sleep(5);
 		boolean allowsCoreThreadTimeOut = threadPool.allowsCoreThreadTimeOut();
 		int corePoolSize = threadPool.getCorePoolSize();
+
 		logger.info("allowsCoreThreadTimeOut: {}", allowsCoreThreadTimeOut);
 		logger.info("corePoolSize: {}", corePoolSize);
 
 		threadPool.shutdown();
 	}
 
-	// reject when nTasks > maximumPoolSize + BlockingQueue size
+	// XXX reject when nTasks > maximumPoolSize + BlockingQueue size
 	public static void fooo() {
 
 		int nThreads = 3;
 		int maximumPoolSize = 5;
+		int nQueueCapacity = 3;
 
 		ThreadPoolExecutor threadPool = new ThreadPoolExecutor(nThreads, maximumPoolSize, 0L, TimeUnit.SECONDS,
-				new LinkedBlockingQueue<Runnable>(3), new RejectedExecutionHandler() {
+				new LinkedBlockingQueue<Runnable>(nQueueCapacity), new RejectedExecutionHandler() {
 					@Override
 					public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-						logger.info("Runnable: {}, ThreadPoolExecutor: {}", r, executor);
+						logger.info("rejected, Runnable: {}, ThreadPoolExecutor: {}", r, executor);
 					}
 				});
 
@@ -101,6 +103,7 @@ public class ThreadPoolExecutorFoo {
 	}
 
 	public static void main(String[] args) throws Exception {
-		fooo();
+		foo();
+//		fooo();
 	}
 }

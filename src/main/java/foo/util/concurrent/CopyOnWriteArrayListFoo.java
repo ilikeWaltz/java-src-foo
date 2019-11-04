@@ -1,10 +1,14 @@
 package foo.util.concurrent;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// java.util.concurrent.CopyOnWriteArrayList<E>
+
+// final transient ReentrantLock lock = new ReentrantLock();
+// private transient volatile Object[] array;
 
 public class CopyOnWriteArrayListFoo {
 
-	private static Logger logger = LoggerFactory.getLogger(CopyOnWriteArrayListFoo.class);
-
 }
+
+// Q & A
+
+// final transient
