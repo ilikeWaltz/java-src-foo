@@ -1,4 +1,4 @@
-package foo.util.concurrent;
+package foo.util.concurrent.countDownLatch;
 
 // TIJ 4
 

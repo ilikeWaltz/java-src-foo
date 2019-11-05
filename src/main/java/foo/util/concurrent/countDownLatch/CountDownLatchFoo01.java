@@ -1,4 +1,4 @@
-package foo.util.concurrent;
+package foo.util.concurrent.countDownLatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
