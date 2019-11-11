@@ -1,12 +1,12 @@
 package foo.util.concurrent;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// java.lang.Runnable
+//
+// The Runnable interface should be implemented by any class whose instances are intended to be executed by a thread. 
+// The class must define a method of no arguments called run. 
 
+// public abstract void run();
 
-// 
 public class RunnableFoo {
-
-	private static Logger logger = LoggerFactory.getLogger(RunnableFoo.class);
 
 }

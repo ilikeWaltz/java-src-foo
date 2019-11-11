@@ -1,13 +1,14 @@
 https://plumbr.io/handbook/what-is-garbage-collection
 
-Q & A
---------------------------------------
+-------------------------------------- Q & A
 what is memory leak?
 what is garbage collection?
 
--------------------------------------- Algorithms
+
+-------------------------------------- GC Algorithms
 Reference Counting 
 Mark and Sweep
+
 
 
 -------------------------------------- Mark and Sweep
@@ -32,6 +33,7 @@ This process relocates all the reachable objects next to each other, eliminating
 
 
 -------------------------------------- Generational Hypothesis
+
 As we have mentioned before, doing a garbage collection entails stopping the application completely. 
 It is also quite obvious that the more objects there are the longer it takes to collect all the garbage. 
 But what if we would have a possibility to work with smaller memory regions? 
@@ -47,3 +49,7 @@ Young Generation
 Old Generation (Tenured)
 
 -------------------------------------- 
+-------------------------------------- 
+-------------------------------------- 
+
+

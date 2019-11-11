@@ -6,10 +6,12 @@ import java.util.concurrent.ExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// A task that returns a result and may throw an exception.
 // java.util.concurrent.Callable<V>
+//
+// A task that returns a result and may throw an exception. 
+// Implementors define a single method with no arguments called call. 
 
-// V call() throws Exception;
+// V call() throws Exception; // Computes a result, or throws an exception if unable to do so.
 
 public class CallableFoo {
 
