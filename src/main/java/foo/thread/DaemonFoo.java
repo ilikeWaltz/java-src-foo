@@ -5,10 +5,10 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// Thread.setDaemon(boolean on) 
+// 
 // This method must be invoked before the thread is started. 
 // The Java Virtual Machine exits when the only threads running are all daemon threads. 
-// 
-// Thread.setDaemon(boolean on) 
 
 // Thread.isDaemon() 
 
@@ -23,7 +23,7 @@ public class DaemonFoo {
 			@Override
 			public void run() {
 				try {
-					TimeUnit.SECONDS.sleep(10);
+					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
 					logger.error("", e);
 				}
@@ -32,8 +32,9 @@ public class DaemonFoo {
 		});
 
 		// true: JVM end immediately
-		// false: JVM wait for user thread to end
-		thread.setDaemon(true);
+		// false: JVM wait for this thread to end
+		thread.setDaemon(false);
+		logger.info("thread.isDaemon(): {}", thread.isDaemon());
 
 		thread.start();
 	}
