@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -102,8 +103,26 @@ public class ThreadPoolExecutorFoo {
 		threadPool.shutdown();
 	}
 
+	public static void scheduleFoo() {
+		ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(1);
+		Runnable runnable = new Runnable() {
+
+			@Override
+			public void run() {
+				logger.info("111");
+			}
+		};
+		threadPool.schedule(runnable, 5, TimeUnit.SECONDS);
+		threadPool.schedule(runnable, 4, TimeUnit.SECONDS);
+		threadPool.schedule(runnable, 3, TimeUnit.SECONDS);
+		threadPool.schedule(runnable, 2, TimeUnit.SECONDS);
+		threadPool.schedule(runnable, 1, TimeUnit.SECONDS);
+		threadPool.shutdown();
+	}
+
 	public static void main(String[] args) throws Exception {
-		foo();
-//		fooo();
+		// foo();
+		// fooo();
+		scheduleFoo();
 	}
 }

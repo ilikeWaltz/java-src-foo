@@ -36,20 +36,14 @@ public class ConnectionFoo {
 
 	public static void main(String[] args) {
 
-		// TODO
-		String url = "jdbc:mysql://localhost/database_dev";
-		String user = "root";
-		String password = "";
-
 		Connection connection = null;
 
 		try {
-
 			// Not necessary.
 			Class.forName("com.mysql.jdbc.Driver"); // XXX mysql
 
 			// get connection
-			connection = DriverManager.getConnection(url, user, password);
+			connection = DriverManager.getConnection(Constants.URL, Constants.USER, Constants.PASSWORD);
 			logger.info("Connection: {}", connection);
 
 			// Connection
@@ -62,7 +56,7 @@ public class ConnectionFoo {
 			for (Entry<Object, Object> entry : entrySet)
 				logger.info("client info, k-v:\t{}: {}", entry.getKey(), entry.getValue());
 
-			//
+			// TRANSACTION_REPEATABLE_READ
 			int transactionIsolation = connection.getTransactionIsolation();
 			logger.info("transactionIsolation: {}", transactionIsolation);
 

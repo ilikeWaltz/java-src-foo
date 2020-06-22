@@ -31,21 +31,16 @@ import org.slf4j.LoggerFactory;
 
 public class StatementFoo {
 
-	private static Logger logger = LoggerFactory.getLogger(StatementFoo.class);
+	private static final Logger logger = LoggerFactory.getLogger(StatementFoo.class);
 
 	public static void main(String[] args) {
-
-		// TODO
-		String url = "jdbc:mysql://localhost/db_dev";
-		String user = "root";
-		String password = "";
 
 		Connection connection = null;
 		Statement statement = null;
 
 		try {
 
-			connection = DriverManager.getConnection(url, user, password);
+			connection = DriverManager.getConnection(Constants.URL, Constants.USER, Constants.PASSWORD);
 			logger.info("Connection: {}", connection);
 
 			// statement
@@ -53,7 +48,8 @@ public class StatementFoo {
 			logger.info("Statement: {}", statement);
 
 			//
-			statement.execute("");
+			boolean execute = statement.execute("");
+			logger.info("{}", execute);
 
 		} catch (SQLException se) {
 			logger.error("sql error", se);

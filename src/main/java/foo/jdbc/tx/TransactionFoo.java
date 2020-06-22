@@ -8,22 +8,19 @@ import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import foo.jdbc.Constants;
+
 public class TransactionFoo {
 
 	private static Logger logger = LoggerFactory.getLogger(TransactionFoo.class);
 
 	public static void main(String[] args) {
 
-		// TODO
-		String url = "";
-		String user = "";
-		String password = "";
-
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		try {
-			connection = DriverManager.getConnection(url, user, password);
+			connection = DriverManager.getConnection(Constants.URL, Constants.USER, Constants.PASSWORD);
 			logger.info("Connection: {}", connection);
 
 			// XXX

@@ -84,9 +84,12 @@ If if were to be implemented, it would be deadlock-prone in much the manner of s
 6
 nrbwtt
 
-
-
-
+NEW
+RUNNABLE
+BLOCKED
+WAITING
+TIMED_WAITING
+TERMINATED
 
 --------------------------- [5]
 blocked: wait for a lock to do sth

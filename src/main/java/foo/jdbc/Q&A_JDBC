@@ -1,3 +1,4 @@
+----------------------------------------------
 java.sql.Connection
 
 java.sql.Statement
@@ -8,3 +9,5 @@ java.sql.ResultSet
 
 batch
 tx
+----------------------------------------------
+javax.sql.DataSource

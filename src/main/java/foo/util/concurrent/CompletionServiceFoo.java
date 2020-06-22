@@ -29,7 +29,7 @@ public class CompletionServiceFoo {
 	public static void main(String[] args) {
 
 		// executor
-		ExecutorService executorService = Executors.newFixedThreadPool(3);
+		ExecutorService executorService = Executors.newFixedThreadPool(1);
 
 		//
 		FooCaller f1 = new FooCaller(3);
@@ -75,9 +75,9 @@ class FooCaller implements Callable<Integer> {
 	@Override
 	public Integer call() throws Exception {
 
-		logger.info("Caller Start: 	{}", secs);
+		logger.info("Caller Start, work time: {}", secs);
 		TimeUnit.SECONDS.sleep(secs);
-		logger.info("Caller End: 	{}", secs);
+		logger.info("Caller End, work time:	{}", secs);
 
 		return secs;
 	}

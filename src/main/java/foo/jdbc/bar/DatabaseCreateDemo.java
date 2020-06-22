@@ -8,22 +8,19 @@ import java.sql.Statement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import foo.jdbc.Constants;
+
 public class DatabaseCreateDemo {
 
 	private static Logger logger = LoggerFactory.getLogger(DatabaseCreateDemo.class);
 
 	public static void main(String[] args) {
 
-		// TODO
-		String url = "";
-		String user = "";
-		String password = "";
-
 		Connection connection = null;
 		Statement statement = null;
 
 		try {
-			connection = DriverManager.getConnection(url, user, password);
+			connection = DriverManager.getConnection(Constants.URL, Constants.USER, Constants.PASSWORD);
 			logger.info("Database connected successfully...");
 
 			// Execute a query
