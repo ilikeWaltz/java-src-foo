@@ -18,6 +18,8 @@ public class StringParamFoo {
 		logger.info("{}", str);
 	}
 
+	// assign the str's addr to s
+	// what you do to s will not change the value of str, only s;
 	private static void assignValue(String s) {
 		s = new Date().toString();
 	}
